@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { useState } from "react";
 import { jsx, Button } from "theme-ui";
-import Template1 from "../../assets/images/template-1.png";
 import Navigation from "../Navigation/Navigation";
 import TemplateSelection from "./TemplateSelection/TemplateSelection";
 import BasicInfo from "./BasicInfo/BasicInfo";
 import SocialLinks from "./SocialLinks/SocialLinks";
+import WorkExperience from "./WorkExperience/WorkExperience";
 
 const step = "STEP_1";
 
@@ -15,6 +15,7 @@ const Steps = () => {
     STEP_1: <TemplateSelection />,
     STEP_2: <BasicInfo />,
     STEP_3: <SocialLinks />,
+    STEP_4: <WorkExperience />,
   };
   return (
     <div>

@@ -8,8 +8,6 @@ const BasicInfo = () => {
     return state.basicInfo;
   });
 
-  console.log(basicInfo);
-
   const dispatch = useDispatch();
 
   return (

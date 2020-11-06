@@ -7,7 +7,6 @@ export default {
     text: "#000",
     background: "#fff",
     primary: "#82cbcd",
-    background: "white",
     light: "#6c6c6c",
   },
   buttons: {
@@ -79,7 +78,7 @@ export default {
     },
   },
   formItem: {
-    margin: 1,
+    margin: 2,
   },
   formInlineGroup: {
     display: "flex",

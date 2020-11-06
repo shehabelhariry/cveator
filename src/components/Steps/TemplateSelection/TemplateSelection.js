@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { useDispatch, useSelector } from "react-redux";
-import { jsx, Radio, Input, Label } from "theme-ui";
+import { jsx, Radio, Label } from "theme-ui";
 import Template1 from "../../../assets/images/template-1.png";
 import { changeTemplate } from "../../../features/templateSelection/TemplateSelection";
 
