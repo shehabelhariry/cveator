@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import templateSelectionReducer from "../features/templateSelection/TemplateSelection";
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    template: templateSelectionReducer,
   },
 });
