@@ -16,10 +16,25 @@ const TemplateSelection = () => {
 
   return (
     <div>
-      <h1 sx={{ variant: "header.thin", textAlign: "center", mb: 40 }}>
-        Choose your template
-      </h1>
-
+      <h3
+        sx={{
+          variant: "header.thin",
+          textAlign: "center",
+          mb: 2,
+          color: "primary",
+        }}
+      >
+        How would you like you CV to look like?
+      </h3>
+      <p
+        sx={{
+          variant: "header.thin",
+          textAlign: "center",
+          mb: 20,
+        }}
+      >
+        Select one of the available template. You can always change it later.
+      </p>
       <div
         sx={{
           display: "grid",

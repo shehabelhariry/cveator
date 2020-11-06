@@ -1,9 +1,17 @@
 /** @jsx jsx */
 import { Input, jsx, Label } from "theme-ui";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { updadteBasicInfo } from "../../../features/basicInfo/basicInfo";
 
 const BasicInfo = () => {
+  const basicInfo = useSelector((state) => {
+    return state.basicInfo;
+  });
+
+  console.log(basicInfo);
+
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h3
@@ -29,32 +37,65 @@ const BasicInfo = () => {
         <div sx={{ variant: "formInlineGroup" }}>
           <div sx={{ variant: "formItem", mb: 10, flex: 1 / 2 }}>
             <Label sx={{ mb: 10 }}>First Name</Label>
-            <Input variant="primary" type="text" placeholder="John Doe" />
+            <Input
+              placeholder="John"
+              defaultValue={basicInfo.firstName}
+              onChange={(e) => {
+                dispatch(
+                  updadteBasicInfo({ key: "firstName", value: e.target.value })
+                );
+              }}
+            />
           </div>
           <div sx={{ variant: "formItem", mb: 10, flex: 1 / 2 }}>
             <Label sx={{ mb: 10 }}>Last Name</Label>
-            <Input variant="primary" type="text" placeholder="John Doe" />
+            <Input
+              placeholder="Doe"
+              defaultValue={basicInfo.lastName}
+              onChange={(e) => {
+                dispatch(
+                  updadteBasicInfo({ key: "lastName", value: e.target.value })
+                );
+              }}
+            />
           </div>
         </div>
         <div sx={{ variant: "formItem", mb: 10 }}>
           <Label sx={{ mb: 10 }}>Title</Label>
           <Input
-            variant="primary"
-            type="text"
             placeholder="Frontend Developer"
+            defaultValue={basicInfo.title}
+            onChange={(e) => {
+              dispatch(
+                updadteBasicInfo({ key: "title", value: e.target.value })
+              );
+            }}
           />
         </div>
         <div sx={{ variant: "formInlineGroup" }}>
           <div sx={{ variant: "formItem", mb: 10, flex: 1 / 2 }}>
             <Label sx={{ mb: 10 }}>Phone</Label>
-            <Input variant="primary" type="text" placeholder="000 0000 000" />
+            <Input
+              type="text"
+              placeholder="000 0000 000"
+              defaultValue={basicInfo.phone}
+              onChange={(e) => {
+                dispatch(
+                  updadteBasicInfo({ key: "phone", value: e.target.value })
+                );
+              }}
+            />
           </div>
           <div sx={{ variant: "formItem", mb: 10, flex: 1 / 2 }}>
             <Label sx={{ mb: 10 }}>Email Address</Label>
             <Input
-              variant="primary"
-              type="text"
               placeholder="john.doe@gmail.com"
+              defaultValue={basicInfo.email}
+              onChange={(e) => {
+                dispatch(
+                  updadteBasicInfo({ key: "email", value: e.target.value })
+                );
+              }}
             />
           </div>
         </div>

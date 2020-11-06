@@ -5,6 +5,7 @@ import Template1 from "../../assets/images/template-1.png";
 import Navigation from "../Navigation/Navigation";
 import TemplateSelection from "./TemplateSelection/TemplateSelection";
 import BasicInfo from "./BasicInfo/BasicInfo";
+import SocialLinks from "./SocialLinks/SocialLinks";
 
 const step = "STEP_1";
 
@@ -13,6 +14,7 @@ const Steps = () => {
   const STEPS = {
     STEP_1: <TemplateSelection />,
     STEP_2: <BasicInfo />,
+    STEP_3: <SocialLinks />,
   };
   return (
     <div>

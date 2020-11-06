@@ -10,6 +10,47 @@ export default {
     background: "white",
     light: "#6c6c6c",
   },
+  buttons: {
+    ...roboto.buttons,
+    inverted: {
+      color: "primary",
+      bg: "transparent",
+      border: 0,
+    },
+  },
+  forms: {
+    label: {
+      fontSize: 1,
+      fontWeight: "bold",
+    },
+    input: {
+      borderColor: "gray",
+      "&:focus": {
+        borderColor: "primary",
+        // boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+        outline: "none",
+      },
+    },
+    select: {
+      borderColor: "gray",
+      "&:focus": {
+        borderColor: "primary",
+        // boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+        outline: "none",
+      },
+    },
+    textarea: {
+      borderColor: "gray",
+      "&:focus": {
+        borderColor: "primary",
+        boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+        outline: "none",
+      },
+    },
+    slider: {
+      bg: "muted",
+    },
+  },
   navigation: {
     background: "white",
     padding: 10,
