@@ -1,14 +1,23 @@
 /** @jsx jsx */
-import { Input, jsx, Label } from "theme-ui";
+import { Input, jsx, Label, Button } from "theme-ui";
 import { useDispatch, useSelector } from "react-redux";
 import { updadteBasicInfo } from "../../../features/basicInfo/basicInfo";
+import { Modal } from "react-bootstrap";
+import { useState } from "react";
+import Classic from "../../Templates/Classic/Classic";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const BasicInfo = () => {
   const basicInfo = useSelector((state) => {
     return state.basicInfo;
   });
+  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -98,6 +107,18 @@ const BasicInfo = () => {
           </div>
         </div>
       </div>
+      <Button
+        sx={{ variant: "buttons.fab", display: "flex", alignItems: "center" }}
+        onClick={handleShow}
+      >
+        <FontAwesomeIcon icon={faEye} />
+        <span sx={{ ml: 10 }}>Preview</span>
+      </Button>
+      <Modal dialogClassName="modal-90w" show={show} onHide={handleClose}>
+        <Modal.Body>
+          <Classic />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

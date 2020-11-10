@@ -238,3 +238,8 @@ ul {
   font-size: 1rem;
   margin: 0.5rem;
 }
+
+.modal-90w {
+  width: 1000px !important;
+  max-width: none !important;
+}

@@ -16,6 +16,11 @@ export default {
       bg: "transparent",
       border: 0,
     },
+    fab: {
+      position: "fixed",
+      right: 100,
+      top: 150,
+    },
   },
   forms: {
     label: {
@@ -26,7 +31,6 @@ export default {
       borderColor: "gray",
       "&:focus": {
         borderColor: "primary",
-        // boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
         outline: "none",
       },
     },
@@ -34,7 +38,6 @@ export default {
       borderColor: "gray",
       "&:focus": {
         borderColor: "primary",
-        // boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
         outline: "none",
       },
     },
@@ -42,7 +45,6 @@ export default {
       borderColor: "gray",
       "&:focus": {
         borderColor: "primary",
-        boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
         outline: "none",
       },
     },

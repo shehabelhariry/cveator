@@ -6,6 +6,7 @@ import TemplateSelection from "./TemplateSelection/TemplateSelection";
 import BasicInfo from "./BasicInfo/BasicInfo";
 import SocialLinks from "./SocialLinks/SocialLinks";
 import WorkExperience from "./WorkExperience/WorkExperience";
+import Education from "./Education/Education";
 
 const step = "STEP_1";
 
@@ -16,6 +17,7 @@ const Steps = () => {
     STEP_2: <BasicInfo />,
     STEP_3: <SocialLinks />,
     STEP_4: <WorkExperience />,
+    STEP_4: <Education />,
   };
   return (
     <div>

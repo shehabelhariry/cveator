@@ -3,6 +3,7 @@ import templateSelectionReducer from "../features/templateSelection/TemplateSele
 import basicInfoReducer from "../features/basicInfo/basicInfo";
 import socialLinksReducer from "../features/socialLinks/socialLinks";
 import workExperienceReducer from "../features/workExperience/workExperience";
+import educationReducer from "../features/education/education";
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     basicInfo: basicInfoReducer,
     socialLinks: socialLinksReducer,
     experiences: workExperienceReducer,
+    education: educationReducer,
   },
 });
