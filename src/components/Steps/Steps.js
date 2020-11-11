@@ -17,7 +17,7 @@ const Steps = () => {
     STEP_2: <BasicInfo />,
     STEP_3: <SocialLinks />,
     STEP_4: <WorkExperience />,
-    STEP_4: <Education />,
+    STEP_5: <Education />,
   };
   return (
     <div>
