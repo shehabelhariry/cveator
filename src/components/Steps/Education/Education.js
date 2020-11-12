@@ -96,7 +96,7 @@ const Education = () => {
           color: "primary",
         }}
       >
-        Where did you went to school? / Tell us where you learn in all
+        Where did you go to school? / Tell us where you learn in all
       </h3>
       <p
         sx={{
@@ -105,7 +105,7 @@ const Education = () => {
           mb: 20,
         }}
       >
-        Employers are always intrested about where you graducated from.
+        Employers are always intrested in where you graducated from.
       </p>
       <FormCreator
         storeKey={latestEducationEntry}

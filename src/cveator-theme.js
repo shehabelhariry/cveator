@@ -88,4 +88,16 @@ export default {
       flexGow: 1,
     },
   },
+  stepCompleted: {
+    width: 30,
+    height: 10,
+    m: 10,
+    bg: "primary",
+  },
+  stepPending: {
+    width: 30,
+    height: 10,
+    m: 10,
+    bg: "light",
+  },
 };

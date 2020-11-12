@@ -13,6 +13,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Steps from "./components/Steps/Steps";
 import DeskImage from "./assets/images/desk.jpg";
 import Logo from "./assets/images/logo.png";
+import StepsIndicator from "./components/Steps/StepsIndicator/StepsIndicator";
 
 function App() {
   const formRef = useRef();
@@ -44,8 +45,20 @@ function App() {
       <Navigation
         position="top"
         children={
-          <div sx={{ variant: "logo" }}>
-            <img src={Logo} sx={{ width: 200 }} />
+          <div
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              width: "100%",
+              justifyItems: "center",
+              alignItems: "center",
+            }}
+          >
+            <div />
+            <div>
+              <img src={Logo} sx={{ width: 200 }} />
+            </div>
+            <StepsIndicator allSteps={4} currentStep={0} />
           </div>
         }
       />

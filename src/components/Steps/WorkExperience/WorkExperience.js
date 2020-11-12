@@ -100,7 +100,7 @@ const WorkExperience = () => {
         }}
       >
         It has been proven that adding your experience in a reverse
-        chronological order is the best way to sort your experience.
+        chronological order is the best way layout your resume.
       </p>
       <FormCreator
         storeKey={latestExperience}

@@ -29,7 +29,6 @@ const Steps = () => {
             onClick={() => {
               const stepKeys = Object.keys(STEPS);
               const index = stepKeys.findIndex((i) => i === currentStep);
-              console.log(stepKeys[index + 1]);
               setCurrentStep(stepKeys[index + 1]);
             }}
           >
