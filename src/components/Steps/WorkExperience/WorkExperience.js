@@ -65,6 +65,17 @@ const WorkExperience = () => {
         },
       ],
     },
+    {
+      items: [
+        {
+          label: "Achievments",
+          placeholder: "Achievments",
+          key: "description",
+          type: "text-area",
+          styles: { flex: 1 },
+        },
+      ],
+    },
   ];
 
   const latestExperience = experiences[0];

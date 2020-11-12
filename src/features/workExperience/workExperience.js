@@ -13,6 +13,7 @@ export const workExperienceSlice = createSlice({
         current: true,
         start: "2020-11-04",
         end: "2020-11-04",
+        description: "",
       },
     ],
   },
@@ -34,6 +35,7 @@ export const workExperienceSlice = createSlice({
           current: false,
           start: "2020-11-04",
           end: "2020-11-04",
+          description: "",
         },
       ];
     },

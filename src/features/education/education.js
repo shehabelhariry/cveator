@@ -12,6 +12,7 @@ export const educationSlice = createSlice({
         state: "Alexandria",
         start: "2020-11-04",
         end: "2020-11-04",
+        description: "",
       },
     ],
   },
@@ -32,6 +33,7 @@ export const educationSlice = createSlice({
           state: "",
           start: "2020-11-04",
           end: "2020-11-04",
+          description: "",
         },
       ];
     },

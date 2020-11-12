@@ -73,6 +73,17 @@ const Education = () => {
         },
       ],
     },
+    {
+      items: [
+        {
+          label: "Achievments",
+          placeholder: "Achievments",
+          key: "description",
+          type: "text-area",
+          styles: { flex: 1 },
+        },
+      ],
+    },
   ];
 
   return (

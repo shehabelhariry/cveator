@@ -1,12 +1,11 @@
 /** @jsx jsx */
 
 import { useDispatch } from "react-redux";
-import { Input, jsx, Select, Label } from "theme-ui";
+import { Input, jsx, Select, Label, Textarea } from "theme-ui";
 
 const FormInput = ({ item, storeKey, updater }) => {
   const dispatch = useDispatch();
   if (item.type === "text" || item.type === "date") {
-    console.log(item);
     return (
       <Input
         placeholder={item.placeholder}
@@ -44,6 +43,26 @@ const FormInput = ({ item, storeKey, updater }) => {
           </option>
         ))}
       </Select>
+    );
+  }
+
+  if (item.type === "text-area") {
+    return (
+      <Textarea
+        placeholder={item.placeholder}
+        defaultValue={storeKey[item.key]}
+        type={item.type}
+        onChange={(e) => {
+          dispatch(
+            updater({
+              id: storeKey.id,
+              key: item.key,
+              value: e.target.value,
+            })
+          );
+        }}
+        rows={8}
+      />
     );
   }
   return;
