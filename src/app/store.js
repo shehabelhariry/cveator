@@ -4,6 +4,7 @@ import basicInfoReducer from "../features/basicInfo/basicInfo";
 import socialLinksReducer from "../features/socialLinks/socialLinks";
 import workExperienceReducer from "../features/workExperience/workExperience";
 import educationReducer from "../features/education/education";
+import stepsReducer from "../features/steps/steps";
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     socialLinks: socialLinksReducer,
     experiences: workExperienceReducer,
     education: educationReducer,
+    steps: stepsReducer,
   },
 });

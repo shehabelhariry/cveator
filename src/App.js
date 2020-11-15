@@ -14,6 +14,8 @@ import Steps from "./components/Steps/Steps";
 import DeskImage from "./assets/images/desk.jpg";
 import Logo from "./assets/images/logo.png";
 import StepsIndicator from "./components/Steps/StepsIndicator/StepsIndicator";
+import { useSelector } from "react-redux";
+import { getStepIndex } from "./features/steps/steps";
 
 function App() {
   const formRef = useRef();
@@ -38,7 +40,11 @@ function App() {
     setHeaderInfo(updatedHeaderInfo);
   };
 
-  const currentStep = "STEP_1";
+  const { steps, currentStep } = useSelector((state) => {
+    return { steps: state.steps.steps, currentStep: state.steps.currentStep };
+  });
+
+  const stepIndex = useSelector((state) => getStepIndex(state.steps));
 
   return (
     <div>
@@ -58,7 +64,7 @@ function App() {
             <div>
               <img src={Logo} sx={{ width: 200 }} />
             </div>
-            <StepsIndicator allSteps={4} currentStep={0} />
+            <StepsIndicator allSteps={steps.length} currentStep={stepIndex} />
           </div>
         }
       />

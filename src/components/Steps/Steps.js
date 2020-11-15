@@ -7,11 +7,12 @@ import BasicInfo from "./BasicInfo/BasicInfo";
 import SocialLinks from "./SocialLinks/SocialLinks";
 import WorkExperience from "./WorkExperience/WorkExperience";
 import Education from "./Education/Education";
+import { useDispatch } from "react-redux";
+import { goToNextStep } from "../../features/steps/steps";
 
-const step = "STEP_1";
+const Steps = ({ currentStep }) => {
+  const dispatch = useDispatch();
 
-const Steps = () => {
-  const [currentStep, setCurrentStep] = useState(step);
   const STEPS = {
     STEP_1: <TemplateSelection />,
     STEP_2: <BasicInfo />,
@@ -27,9 +28,7 @@ const Steps = () => {
         children={
           <Button
             onClick={() => {
-              const stepKeys = Object.keys(STEPS);
-              const index = stepKeys.findIndex((i) => i === currentStep);
-              setCurrentStep(stepKeys[index + 1]);
+              dispatch(goToNextStep());
             }}
           >
             Next
