@@ -8,6 +8,7 @@ import SocialLinks from "./SocialLinks/SocialLinks";
 import WorkExperience from "./WorkExperience/WorkExperience";
 import Education from "./Education/Education";
 import Skills from "./Skills/Skills";
+import Languages from "./Languages/Languages";
 import { useDispatch } from "react-redux";
 import { goToNextStep } from "../../features/steps/steps";
 
@@ -21,6 +22,7 @@ const Steps = ({ currentStep }) => {
     STEP_4: <WorkExperience />,
     STEP_5: <Education />,
     STEP_6: <Skills />,
+    STEP_7: <Languages />,
   };
   return (
     <div>

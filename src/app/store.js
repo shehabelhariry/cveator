@@ -6,6 +6,7 @@ import workExperienceReducer from "../features/workExperience/workExperience";
 import educationReducer from "../features/education/education";
 import stepsReducer from "../features/steps/steps";
 import skillsReducer from "../features/skills/skills";
+import languagesReducer from "../features/languages/languages";
 
 export default configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export default configureStore({
     education: educationReducer,
     steps: stepsReducer,
     skills: skillsReducer,
+    languages: languagesReducer,
   },
 });
