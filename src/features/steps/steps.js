@@ -4,7 +4,7 @@ export const stepsSlice = createSlice({
   name: "steps",
   initialState: {
     currentStep: "STEP_1",
-    steps: ["STEP_1", "STEP_2", "STEP_3", "STEP_4", "STEPS_5"],
+    steps: ["STEP_1", "STEP_2", "STEP_3", "STEP_4", "STEP_5", "STEP_6"],
   },
   reducers: {
     goToNextStep: (state) => {

@@ -100,4 +100,19 @@ export default {
     m: 10,
     bg: "light",
   },
+  pill: {
+    bg: "primary",
+    color: "white",
+    padding: 10,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderRadius: 4,
+    "*": {
+      m: 0,
+    },
+    margin: "4 0",
+    mr: 2,
+    ml: 0,
+  },
 };
