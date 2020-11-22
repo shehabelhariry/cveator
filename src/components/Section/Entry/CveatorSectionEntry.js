@@ -6,13 +6,15 @@ const CveatorSectionEntry = ({ title, subtitle, date, description }) => {
       <h3 className="cveator__section-entry__title">{title}</h3>
       <h3 className="cveator__section-entry__subtitle">{subtitle}</h3>
       <p className="cveator__section-entry__date">{date}</p>
-      <div className="cveator__section-entry__description">
-        <ul>
-          {description.map((descItem) => {
-            return <li key={descItem}>{descItem}</li>;
-          })}
-        </ul>
-      </div>
+      {description && (
+        <div className="cveator__section-entry__description">
+          <ul>
+            {description.map((descItem) => {
+              return <li key={descItem}>{descItem}</li>;
+            })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

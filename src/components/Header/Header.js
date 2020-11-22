@@ -1,6 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import {
+  faInbox,
+  faLink,
+  faMapPin,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedin,
   faGithub,
@@ -15,6 +20,8 @@ const Header = ({ title, name, links }) => {
     behance: <FontAwesomeIcon icon={faBehance} size="2x" />,
     medium: <FontAwesomeIcon icon={faMedium} size="2x" />,
     website: <FontAwesomeIcon icon={faLink} size="2x" />,
+    phone: <FontAwesomeIcon icon={faPhone} size="2x" />,
+    address: <FontAwesomeIcon icon={faInbox} size="2x" />,
   };
 
   return (
@@ -24,7 +31,7 @@ const Header = ({ title, name, links }) => {
       <div className="cveator__sepetator" />
       <div className="cveator__header-contact">
         {links.map((link) => {
-          const urlParts = link.url.split("/");
+          const urlParts = link ? link.url.split("/") : "";
           return (
             <a className="cveator__contact-item" href={link.url}>
               <i>{socialMap[link.type]}</i>

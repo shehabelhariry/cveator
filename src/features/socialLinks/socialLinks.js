@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const socialLinksSlice = createSlice({
   name: "socialLinks",
   initialState: {
-    links: [{ id: 0, type: "linkedIn", url: "" }],
+    links: [],
   },
   reducers: {
     updateLink: (state, action) => {

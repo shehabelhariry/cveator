@@ -64,16 +64,19 @@ function App() {
             <div>
               <img src={Logo} sx={{ width: 200 }} />
             </div>
-            <StepsIndicator allSteps={steps.length} currentStep={stepIndex} />
+            {currentStep ? (
+              <StepsIndicator allSteps={steps.length} currentStep={stepIndex} />
+            ) : null}
           </div>
         }
       />
       <div
         sx={{
-          padding: 40,
           height: "calc(100vh - 82px)",
           position: "relative",
           top: 82,
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         <Steps currentStep={currentStep} />

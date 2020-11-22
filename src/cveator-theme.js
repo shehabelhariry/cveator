@@ -115,4 +115,31 @@ export default {
     mr: 2,
     ml: 0,
   },
+  previewCV: {
+    position: "fixed",
+    right: 100,
+    top: 250,
+    border: "1px solid",
+    borderColor: "primary",
+    ":hover": {
+      "::before": {
+        content: '"Preview"',
+        display: "flex",
+        width: "100%",
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+        zIndex: 2,
+        bg: "rgba(0,0,0,0.3)",
+        cursor: "pointer",
+        color: "white",
+      },
+    },
+  },
+  sideMenu: {
+    boxShadow: "0 1px 6px 0 rgba(32, 33, 36, 0.28)",
+    width: 250,
+    height: "100vh",
+  },
 };

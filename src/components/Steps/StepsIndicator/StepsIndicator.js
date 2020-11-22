@@ -25,9 +25,6 @@ const StepsIndicator = ({ allSteps, currentStep }) => {
       >
         <span
           sx={{
-            // height: "25px",
-            // width: "25px",
-            // borderRadius: "100%",
             border: "1px solid",
             borderColor: "primary",
             display: "flex",

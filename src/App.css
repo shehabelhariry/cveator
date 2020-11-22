@@ -142,7 +142,7 @@ ul {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 1400px;
+  max-height: 1400px;
 }
 
 .cveator__section-layout > div {
