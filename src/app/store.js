@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import templateSelectionReducer from "../features/templateSelection/TemplateSelection";
-import basicInfoReducer from "../features/basicInfo/basicInfo";
-import socialLinksReducer from "../features/socialLinks/socialLinks";
-import workExperienceReducer from "../features/workExperience/workExperience";
-import educationReducer from "../features/education/education";
-import stepsReducer from "../features/steps/steps";
-import skillsReducer from "../features/skills/skills";
-import languagesReducer from "../features/languages/languages";
+import templateSelectionReducer from "../slices/templateSelection";
+import basicInfoReducer from "../slices/basicInfo";
+import socialLinksReducer from "../slices/socialLinks";
+import workExperienceReducer from "../slices/workExperience";
+import educationReducer from "../slices/education";
+import stepsReducer from "../slices/steps";
+import skillsReducer from "../slices/skills";
+import languagesReducer from "../slices/languages";
 
 export default configureStore({
   reducer: {

@@ -7,6 +7,7 @@ export default {
     text: "#000",
     background: "#fff",
     primary: "#82cbcd",
+    bglight: "rgba(130,203,205, 0.28)",
     light: "#6c6c6c",
   },
   buttons: {
@@ -81,6 +82,12 @@ export default {
   },
   formItem: {
     margin: 2,
+    ":last-child": {
+      marginRight: 0,
+    },
+    ":first-child": {
+      marginLeft: 0,
+    },
   },
   formInlineGroup: {
     display: "flex",
@@ -90,15 +97,17 @@ export default {
   },
   stepCompleted: {
     width: 30,
-    height: 10,
-    m: 10,
+    height: 5,
+    m: "10px 5px ",
     bg: "primary",
+    borderRadius: 4,
   },
   stepPending: {
     width: 30,
-    height: 10,
-    m: 10,
-    bg: "light",
+    height: 5,
+    m: "10px 5px ",
+    bg: "bglight",
+    borderRadius: 4,
   },
   pill: {
     bg: "primary",

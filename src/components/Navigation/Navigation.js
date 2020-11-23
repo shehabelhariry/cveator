@@ -13,7 +13,6 @@ const Navigation = (props) => {
       }}
     >
       {props.children}
-      {/* <div className="cveator__navigation__actions"></div> */}
     </nav>
   );
 };

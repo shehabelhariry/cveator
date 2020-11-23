@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { sections } from "../../../sections";
 import Header from "../../Header/Header";
-import CveatorSection from "../../Section/CveatorSection";
+import CveatorSection from "./Section/CveatorSection";
 
 function formatDate(start, end) {
   const fd = (date) => {
@@ -14,19 +14,22 @@ function formatDate(start, end) {
   return `${fd(start)} - ${end !== "present" ? fd(end) : "present"}`;
 }
 
-const Classic = () => {
+const Classic = ({ bordered }) => {
   const { headerInfo, storeSection } = useSelector((state) => {
-    console.log(state);
     return {
       headerInfo: {
-        name: `${state.basicInfo.firstName} ${state.basicInfo.lastName}`,
-        title: state.basicInfo.title,
+        name: `${state.basicInfo.entries[0].firstName} ${state.basicInfo.entries[0].lastName}`,
+        title: state.basicInfo.entries[0].title,
         links: [
-          state.basicInfo.phone
-            ? { id: "-1", type: "phone", url: state.basicInfo.phone }
+          state.basicInfo.entries[0].phone
+            ? { id: "-1", type: "phone", url: state.basicInfo.entries[0].phone }
             : null,
-          state.basicInfo.email
-            ? { id: "-2", type: "address", url: state.basicInfo.email }
+          state.basicInfo.entries[0].email
+            ? {
+                id: "-2",
+                type: "address",
+                url: state.basicInfo.entries[0].email,
+              }
             : null,
           ...state.socialLinks.links,
         ].filter((i) => i),
@@ -84,11 +87,12 @@ const Classic = () => {
     };
   });
 
-  console.log(sections);
-
   return (
     <div className="cveator App">
-      <div className="cveator-container">
+      <div
+        className="cveator-container"
+        style={{ border: bordered ? "1px solid black" : "" }}
+      >
         <Header {...headerInfo} />
         <div className="cveator__section-layout">
           {storeSection.map((section) => {
