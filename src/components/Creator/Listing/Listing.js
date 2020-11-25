@@ -1,15 +1,25 @@
 /** @jsx jsx */
 
-import { faPencilAlt, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencilAlt,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { jsx, Box, Button } from "theme-ui";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addExperience } from "../../../slices/workExperience";
+import {
+  addExperience,
+  removeExperience,
+} from "../../../slices/workExperience";
+import {
+  addEducationEntry,
+  removeEducationEntry,
+} from "../../../slices/education";
 
-const Listing = ({ items, title }) => {
+const Listing = ({ items, title, type }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   return (
     <div>
       <h3
@@ -37,21 +47,47 @@ const Listing = ({ items, title }) => {
                 p: 3,
                 position: "relative",
                 borderRadius: 4,
+                ":hover": {
+                  ".actions": {
+                    visibility: "visible",
+                  },
+                },
               }}
             >
-              <h5>{item.title || "Musician"}</h5>
+              <h5>{item.title || item.degree || "Musician"}</h5>
               <h6>@ {item.employer || item.school || "Untitled"}</h6>
-              <Link
-                to={`work/edit/${item.id}`}
-                sx={{
-                  position: "absolute",
-                  right: 20,
-                  top: 20,
-                  color: "primary",
-                }}
-              >
-                <FontAwesomeIcon icon={faPencilAlt} />
-              </Link>
+              <div className="actions" sx={{ visibility: "hidden" }}>
+                <Link
+                  to={`${type}/edit/${item.id}`}
+                  sx={{
+                    position: "absolute",
+                    right: 20,
+                    top: 20,
+                    color: "primary",
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPencilAlt} />
+                </Link>
+                <Link
+                  variant="inverted"
+                  sx={{
+                    position: "absolute",
+                    right: 60,
+                    top: 20,
+                    color: "primary",
+                  }}
+                  onClick={() => {
+                    if (type === "work") {
+                      dispatch(removeExperience({ id: item.id }));
+                    }
+                    if (type === "education") {
+                      dispatch(removeEducationEntry({ id: item.id }));
+                    }
+                  }}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </Link>
+              </div>
             </Box>
           );
         })}
@@ -59,7 +95,12 @@ const Listing = ({ items, title }) => {
           variant="inverted"
           sx={{ border: "1px solid", borderColor: "primary", borderRadius: 4 }}
           onClick={() => {
-            dispatch(addExperience());
+            if (type === "work") {
+              dispatch(addExperience());
+            }
+            if (type === "education") {
+              dispatch(addEducationEntry());
+            }
           }}
         >
           <FontAwesomeIcon size="2x" icon={faPlus} />

@@ -31,7 +31,7 @@ const SocialLinks = () => {
     website: <FontAwesomeIcon icon={faLink} size="2x" />,
   };
   return (
-    <div sx={{ width: "100%", textAlign: "left" }}>
+    <div sx={{ width: "100%", textAlign: "left", maxWidth: 800 }}>
       <CreatorSectionHeader
         title="Where can you be found online?"
         subTitle="Adding your social links will increase the chances of recruiters finding

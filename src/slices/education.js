@@ -7,7 +7,7 @@ export const educationSlice = createSlice({
       {
         id: 0,
         school: "Alexandria University",
-        degree: "Incorta",
+        degree: "Bacherlor's Degree",
         country: "Egypt",
         state: "Alexandria",
         start: "2020-11-04",
@@ -28,11 +28,11 @@ export const educationSlice = createSlice({
         {
           id: Date.now(),
           school: "",
-          degree: "",
+          degree: "Bacherlor's Degree",
           country: "",
           state: "",
-          start: "2020-11-04",
-          end: "2020-11-04",
+          start: "",
+          end: "",
           description: "",
         },
       ];

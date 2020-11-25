@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { useDispatch, useSelector } from "react-redux";
 import { updadteBasicInfo } from "../../../../slices/basicInfo";
 import FormCreator from "../../FormCreator/FormCreator";
 import CreatorSectionHeader from "../../CreatorSections/CreatorSectionHeader/CreatorSectionHeader";
@@ -57,7 +56,7 @@ const BasicInfo = ({ entry }) => {
   ];
 
   return (
-    <div sx={{ width: "100%" }}>
+    <div sx={{ width: "100%", maxWidth: 800 }}>
       <CreatorSectionHeader
         title="What’s the best way for employers to contact you?"
         subTitle="We suggest using an email and phone number"

@@ -44,7 +44,7 @@ const TemplateSelection = () => {
                 />
                 {th.label}
               </Label>
-              <img src={Template1} sx={{ width: "100%" }} />
+              <img src={Template1} sx={{ width: "100%" }} alt={th.id} />
             </div>
           );
         })}

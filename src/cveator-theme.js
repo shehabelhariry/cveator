@@ -150,5 +150,7 @@ export default {
     boxShadow: "0 1px 6px 0 rgba(32, 33, 36, 0.28)",
     width: 250,
     height: "100vh",
+    position: "fixed",
+    bg: "white",
   },
 };

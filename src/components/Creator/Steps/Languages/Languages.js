@@ -11,7 +11,7 @@ const Languages = () => {
   });
   const dispatch = useDispatch();
   return (
-    <div sx={{ width: "100%", textAlign: "center" }}>
+    <div sx={{ width: "100%", textAlign: "center", maxWidth: 800 }}>
       <h3
         sx={{
           variant: "header.thin",

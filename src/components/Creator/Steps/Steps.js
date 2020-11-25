@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Button } from "theme-ui";
+import { jsx, Button, Slider } from "theme-ui";
 import Navigation from "../../Navigation/Navigation";
 import TemplateSelection from "./TemplateSelection/TemplateSelection";
 import BasicInfo from "./BasicInfo/BasicInfo";
@@ -8,9 +8,11 @@ import WorkExperience from "./WorkExperience/WorkExperience";
 import Education from "./Education/Education";
 import Skills from "./Skills/Skills";
 import Languages from "./Languages/Languages";
-import { useDispatch, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { goToNextStep } from "../../../slices/steps";
 import Preview from "./PreviewSection/PreviewSection";
+import { jsPDF } from "jspdf";
+import { renderToString } from "react-dom/server";
 
 import {
   Switch,
@@ -22,6 +24,12 @@ import {
 
 import Work from "./WorkExperience/Work";
 import Classic from "../../Templates/Classic/Classic";
+import { useState } from "react";
+import EducationIndex from "./Education/EducationIndex";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import store from "../../../app/store";
+import { getIcons } from "../../Templates/Classic/icons/icons";
 
 const Steps = ({ currentStep }) => {
   const dispatch = useDispatch();
@@ -195,7 +203,7 @@ const Steps = ({ currentStep }) => {
             Languages
           </NavLink>
         </div>
-        <div sx={{ padding: 40, flex: 0.7, ml: 40 }}>
+        <div sx={{ padding: 40, flex: 1, ml: 40, paddingLeft: 250 }}>
           <Switch>
             <Route path="/basic">
               <BasicInfo entry={basicInfoEntries[0]} />
@@ -210,7 +218,13 @@ const Steps = ({ currentStep }) => {
                 items={workExperienceEntries}
               />
             </Route>
-            <Route path="/education">{/* <Education /> */}</Route>
+            <Route path="/education">
+              <EducationIndex
+                title="Education"
+                type="education"
+                items={educationEntries}
+              />
+            </Route>
             <Route path="/skills">
               <Skills />
             </Route>
@@ -219,16 +233,78 @@ const Steps = ({ currentStep }) => {
             </Route>
             <Route path="/overview">
               <div>
-                <Classic bordered={true} scale={0.2} />
+                <ZoomControl initialZoom={0.8}>
+                  {({ zoom, setZoom }) => {
+                    return (
+                      <div>
+                        <Classic scale={zoom} bordered={true} />
+                        <div
+                          sx={{
+                            position: "fixed",
+                            bottom: 20,
+                            p: 20,
+                            zIndex: 4,
+                          }}
+                        >
+                          <Slider
+                            defaultValue={zoom * 100}
+                            onChange={(e) => {
+                              setZoom(e.target.value / 100);
+                            }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  }}
+                </ZoomControl>
               </div>
             </Route>
             <Route path="/">
               <Redirect to="/overview" />
             </Route>
           </Switch>
+          <Button
+            sx={{ position: "fixed", right: 40, bottom: 40 }}
+            onClick={async () => {
+              const icons = await getIcons("social", true);
+              const doc = new jsPDF("p", "px", "a4");
+              var width = doc.internal.pageSize.getWidth();
+              var height = doc.internal.pageSize.getHeight();
+              doc.html(
+                renderToString(
+                  <Provider store={store}>
+                    <Classic
+                      scale={1}
+                      printMode={true}
+                      width={width}
+                      height={height}
+                      icons={icons}
+                    />
+                  </Provider>
+                ),
+                {
+                  callback: function (doc) {
+                    doc.save();
+                  },
+                  x: 0,
+                  y: 0,
+                }
+              );
+            }}
+          >
+            <FontAwesomeIcon sx={{ mr: 10 }} icon={faDownload} />
+            Download
+          </Button>
         </div>
       </BrowserRouter>
+      <canvas style={{ position: "absolute", left: "-10000000000000px" }} />
     </div>
   );
 };
+
+const ZoomControl = ({ initialZoom = 1, children }) => {
+  const [zoom, setZoom] = useState(initialZoom);
+  return children({ zoom, setZoom });
+};
+
 export default Steps;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { sections } from "../../../sections";
+// import { sections } from "../../../sections";
 import Header from "../../Header/Header";
 import CveatorSection from "./Section/CveatorSection";
 
@@ -14,7 +14,24 @@ function formatDate(start, end) {
   return `${fd(start)} - ${end !== "present" ? fd(end) : "present"}`;
 }
 
-const Classic = ({ bordered }) => {
+const Classic = ({
+  bordered,
+  scale = 1,
+  printMode = false,
+  width,
+  height,
+  icons,
+}) => {
+  const printModeStyles = {
+    margin: 0,
+    // transform: "scale(0.45)",
+    transformOrigin: "left top",
+    padding: 10,
+    width: width || "100%",
+    maxHeight: height,
+    fontSize: 10,
+  };
+
   const { headerInfo, storeSection } = useSelector((state) => {
     return {
       headerInfo: {
@@ -91,9 +108,14 @@ const Classic = ({ bordered }) => {
     <div className="cveator App">
       <div
         className="cveator-container"
-        style={{ border: bordered ? "1px solid black" : "" }}
+        style={{
+          boxShadow: bordered ? "0 1px 6px 0 rgba(32, 33, 36, 0.28)" : "",
+          transform: `scale(${scale})`,
+          // ...printModeStyles,
+          ...(printMode ? printModeStyles : null),
+        }}
       >
-        <Header {...headerInfo} />
+        <Header {...headerInfo} printMode={printMode} icons={icons} />
         <div className="cveator__section-layout">
           {storeSection.map((section) => {
             return <CveatorSection {...section} key={section.title} />;

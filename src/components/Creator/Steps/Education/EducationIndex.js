@@ -2,10 +2,10 @@
 
 import { jsx } from "theme-ui";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-import WorkExperience from "./WorkExperience";
+import Education from "./Education";
 import Listing from "../../Listing/Listing";
 
-const Work = ({ items, type, title }) => {
+const EducationIndex = ({ items, type, title }) => {
   let { path } = useRouteMatch();
   return (
     <Switch>
@@ -20,7 +20,7 @@ const Work = ({ items, type, title }) => {
           },
         }) => {
           return (
-            <WorkExperience
+            <Education
               entry={items.find((i) => parseInt(i.id) === parseInt(id))}
             />
           );
@@ -30,4 +30,4 @@ const Work = ({ items, type, title }) => {
   );
 };
 
-export default Work;
+export default EducationIndex;

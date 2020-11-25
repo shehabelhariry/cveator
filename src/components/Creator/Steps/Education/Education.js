@@ -81,7 +81,7 @@ const Education = ({ entry }) => {
   ];
 
   return (
-    <div sx={{ width: "100%", textAlign: "center" }}>
+    <div sx={{ width: "100%", textAlign: "center", maxWidth: 800 }}>
       <CreatorSectionHeader
         title="Where did you go to school? / Tell us where you learn in all"
         subTitle="Employers are always intrested in where you graducated from."

@@ -18,7 +18,7 @@ const Preview = () => {
         }}
         onClick={handleShow}
       >
-        <img sx={{ width: 200 }} src={Template1} />
+        <img sx={{ width: 200 }} src={Template1} alt="preview" />
       </span>
       <Modal dialogClassName="modal-90w" show={show} onHide={handleClose}>
         <Modal.Body>

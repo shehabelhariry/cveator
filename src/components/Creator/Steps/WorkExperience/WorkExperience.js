@@ -75,7 +75,7 @@ const WorkExperience = ({ entry }) => {
   ];
 
   return (
-    <div sx={{ width: "100%", textAlign: "center" }}>
+    <div sx={{ width: "100%", textAlign: "center", maxWidth: 800 }}>
       <CreatorSectionHeader
         title="What is your latest / current job?"
         subTitle=" It has been proven that adding your experience in a reverse

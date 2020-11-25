@@ -34,7 +34,7 @@ function App() {
           >
             <div />
             <div>
-              <img src={Logo} sx={{ width: 200 }} />
+              <img alt="logo" src={Logo} sx={{ width: 200 }} />
             </div>
             {currentStep ? (
               <StepsIndicator allSteps={steps.length} currentStep={stepIndex} />
