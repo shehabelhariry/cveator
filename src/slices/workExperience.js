@@ -13,7 +13,10 @@ export const workExperienceSlice = createSlice({
         current: true,
         start: "2020-11-04",
         end: "2020-11-04",
-        description: "",
+        description: `Building reusable, scalable components with React js and integrating them into the Incorta product
+Building and maintaining geo-spatial support to the Incorta product using mapbox
+Building a simple file system to achieve dashboard browsing
+Writing integeration tests for the features using react-testing-library`,
       },
     ],
   },

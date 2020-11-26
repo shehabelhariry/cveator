@@ -18,18 +18,15 @@ const Classic = ({
   bordered,
   scale = 1,
   printMode = false,
-  width,
-  height,
   icons,
+  settings,
 }) => {
   const printModeStyles = {
     margin: 0,
-    // transform: "scale(0.45)",
-    transformOrigin: "left top",
-    padding: 10,
-    width: width || "100%",
-    maxHeight: height,
-    fontSize: 10,
+    padding: 0,
+    width: "100%",
+    fontSize: 14,
+    color: settings ? settings.color : "black",
   };
 
   const { headerInfo, storeSection } = useSelector((state) => {
@@ -111,7 +108,6 @@ const Classic = ({
         style={{
           boxShadow: bordered ? "0 1px 6px 0 rgba(32, 33, 36, 0.28)" : "",
           transform: `scale(${scale})`,
-          // ...printModeStyles,
           ...(printMode ? printModeStyles : null),
         }}
       >

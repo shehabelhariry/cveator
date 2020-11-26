@@ -11,9 +11,8 @@ import Languages from "./Languages/Languages";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { goToNextStep } from "../../../slices/steps";
 import Preview from "./PreviewSection/PreviewSection";
-import { jsPDF } from "jspdf";
 import { renderToString } from "react-dom/server";
-
+import html2pdf from "html2pdf.js";
 import {
   Switch,
   Route,
@@ -237,7 +236,11 @@ const Steps = ({ currentStep }) => {
                   {({ zoom, setZoom }) => {
                     return (
                       <div>
-                        <Classic scale={zoom} bordered={true} />
+                        <Classic
+                          scale={zoom}
+                          bordered={true}
+                          settings={{ color: "red" }}
+                        />
                         <div
                           sx={{
                             position: "fixed",
@@ -257,6 +260,9 @@ const Steps = ({ currentStep }) => {
                     );
                   }}
                 </ZoomControl>
+                <div sx={{ variant: "sideMenu", width: 100, right: 0 }}>
+                  <h4>Settings</h4>
+                </div>
               </div>
             </Route>
             <Route path="/">
@@ -267,29 +273,27 @@ const Steps = ({ currentStep }) => {
             sx={{ position: "fixed", right: 40, bottom: 40 }}
             onClick={async () => {
               const icons = await getIcons("social", true);
-              const doc = new jsPDF("p", "px", "a4");
-              var width = doc.internal.pageSize.getWidth();
-              var height = doc.internal.pageSize.getHeight();
-              doc.html(
-                renderToString(
-                  <Provider store={store}>
-                    <Classic
-                      scale={1}
-                      printMode={true}
-                      width={width}
-                      height={height}
-                      icons={icons}
-                    />
-                  </Provider>
-                ),
-                {
-                  callback: function (doc) {
-                    doc.save();
-                  },
-                  x: 0,
-                  y: 0,
-                }
+              const e = document.createElement("div");
+
+              var opt = {
+                margin: 0.5,
+                filename: "CV.pdf",
+                image: { type: "jpeg", quality: 0.98 },
+                html2canvas: { scale: 5 },
+                jsPDF: {
+                  unit: "in",
+                  format: "letter",
+                  orientation: "portrait",
+                },
+              };
+
+              e.innerHTML = renderToString(
+                <Provider store={store}>
+                  <Classic scale={1} printMode={true} icons={icons} />
+                </Provider>
               );
+
+              html2pdf(e, opt);
             }}
           >
             <FontAwesomeIcon sx={{ mr: 10 }} icon={faDownload} />
@@ -298,6 +302,7 @@ const Steps = ({ currentStep }) => {
         </div>
       </BrowserRouter>
       <canvas style={{ position: "absolute", left: "-10000000000000px" }} />
+      <img id="temp" />
     </div>
   );
 };

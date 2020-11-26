@@ -34,7 +34,7 @@
 
 .cveator-container {
   font-size: 20px;
-  font-family: "IBMPlexSans", Courier, monospace !important;
+  /* font-family: "IBMPlexSans", Courier, monospace !important; */
   /* background-color: black; */
 }
 
@@ -96,7 +96,7 @@ ul {
 }
 
 .cveator__contact-item img {
-  width: 10px;
+  width: 1em;
 }
 
 .cveator__header-contact > .cveator__contact-item {
@@ -122,13 +122,14 @@ ul {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 70em;
+  max-height: 80em;
 }
 
 .cveator__section-layout > div {
   display: inline-block;
-  width: 50%;
+  /* width: 50%; */
   vertical-align: top;
+  text-align: center;
 }
 
 .cveator__section__title {

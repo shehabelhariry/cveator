@@ -10,13 +10,13 @@ import {
 
 const Header = ({ title, name, links, printMode, icons }) => {
   const socialMap = icons || {
-    linkedIn: <FontAwesomeIcon icon={faLinkedin} size="2x" />,
-    github: <FontAwesomeIcon icon={faGithub} size="2x" />,
-    behance: <FontAwesomeIcon icon={faBehance} size="2x" />,
-    medium: <FontAwesomeIcon icon={faMedium} size="2x" />,
-    website: <FontAwesomeIcon icon={faLink} size="2x" />,
-    phone: <FontAwesomeIcon icon={faPhone} size="2x" />,
-    address: <FontAwesomeIcon icon={faInbox} size="2x" />,
+    linkedIn: <FontAwesomeIcon icon={faLinkedin} />,
+    github: <FontAwesomeIcon icon={faGithub} />,
+    behance: <FontAwesomeIcon icon={faBehance} />,
+    medium: <FontAwesomeIcon icon={faMedium} />,
+    website: <FontAwesomeIcon icon={faLink} />,
+    phone: <FontAwesomeIcon icon={faPhone} />,
+    address: <FontAwesomeIcon icon={faInbox} />,
   };
 
   const svgToBase64Img = (component) => {

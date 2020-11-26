@@ -6,11 +6,11 @@ export const basicInfoSlice = createSlice({
     entries: [
       {
         id: 0,
-        firstName: "",
-        lastName: "",
-        title: "",
-        phone: "",
-        email: "",
+        firstName: "Shehab",
+        lastName: "Elhariry",
+        title: "Frontend Developer",
+        phone: "01115567736",
+        email: "cheha6@gmail.com",
       },
     ],
   },
